@@ -1,13 +1,13 @@
 FROM python:alpine
 
-RUN apk add gcc linux-headers musl-dev cargo
+# RUN apk add gcc linux-headers musl-dev cargo
 
 WORKDIR /app
 
 COPY requirements.txt .
 
 # Install Requirements
-RUN pip install -r requirements.txt
+RUN pip install fastapi
 
 COPY . .
 
