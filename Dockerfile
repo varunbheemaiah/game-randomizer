@@ -1,5 +1,7 @@
 FROM python:alpine
 
+RUN apk add gcc
+
 WORKDIR /app
 
 COPY requirements.txt .
