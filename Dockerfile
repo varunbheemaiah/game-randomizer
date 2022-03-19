@@ -7,7 +7,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install Requirements
-RUN pip install fastapi
+RUN pip install -r requirements.txt
 
 COPY . .
 
