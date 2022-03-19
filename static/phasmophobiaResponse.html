@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Phasmophobia Randomiser</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+		}
+
+		.title {
+			font-size: 2.5em;
+			font-weight: bold;
+			text-align: center;
+			padding: 1em;
+		}
+
+		.divider {
+			width: 90%;
+		}
+
+		.data-table {
+			padding: 1em;
+			font-size: 1.5em;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="title">
+		<span>Phasmophobia Randomiser</span>
+	</div>
+	<hr class="divider">
+	<table class="data-table">
+		{% if data['map_size'] %}
+		<tr>
+			<td>
+				Map Size
+			</td>
+			<td>
+				:
+			</td>
+			<td>
+				{{sentence_case(data['map_size'])}}
+			</td>
+		</tr>
+		{% endif %}
+		{% if data['map'] %}
+		<tr>
+			<td>
+				Map Name
+			</td>
+			<td>
+				:
+			</td>
+			<td>
+				{{sentence_case(data['map'])}}
+			</td>
+		</tr>
+		{% endif %}
+		{% if data['difficulty'] %}
+		<tr>
+			<td>
+				Difficulty
+			</td>
+			<td>
+				:
+			</td>
+			<td>
+				{{sentence_case(data['difficulty'])}}
+			</td>
+		</tr>
+		{% endif %}
+		{% if data['challenge'] %}
+		<tr>
+			<td>
+				Challenge
+			</td>
+			<td>
+				:
+			</td>
+			<td>
+				{{sentence_case(data['challenge'])}}
+			</td>
+		</tr>
+		{% endif %}
+	</table>
+	{% if data['equipment'] %}
+	<table class="data-table">
+		<tr>
+			<td colspan="2">
+				Equipment:
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table style="padding-left: 1em;">
+					{% for equipment in data['equipment'] %}
+					<tr>
+						<td>
+							{{equipment}}
+						</td>
+						<td>
+							:
+						</td>
+						<td>
+							{{data['equipment'][equipment]}}
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</td>
+		</tr>
+	</table>
+	{% endif %}
+</body>
+
+</html>
