@@ -1,10 +1,6 @@
 FROM python:alpine
 
-RUN apk add gcc
-
-RUN apk add linux-headers
-
-RUN apk add musl-dev
+RUN apk add gcc linux-headers musl-dev cargo
 
 WORKDIR /app
 
